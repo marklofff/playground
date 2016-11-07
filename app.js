@@ -8,10 +8,13 @@ const r = require('rethinkdbdash')({
 server.listen(8010);
 
 io.on('connection', (socket) => {
-  console.log('hi')
+  console.log('WebSocket Connected')
+
   r.table('messages').run().then((result) => {
-    socket.emit('init', { messages: result })
+    socket.emit('MESSAGES_AND_LABELS', { messages: result , labels: [] })
   }).catch((err) => {
+    console.log('WebSocket Error')
     console.log(err)
   })
+
 })

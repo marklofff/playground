@@ -6,6 +6,7 @@ export const labelFromParams = ({ commit, state }) => {
     commit(types.SET_LABEL, label)
 }
 
-export const initMessages = ({ commit }, messages) => {
+export const messagesAndLabels = ({ commit }, { messages, labels }) => {
   commit(types.SET_MESSAGES, messages)
+  commit(types.SET_LABELS, labels)
 }

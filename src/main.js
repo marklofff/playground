@@ -8,9 +8,9 @@ import socketio from 'socket.io-client'
 
 let socket = socketio('http://localhost:8010')
 
-socket.on('init', (data) => {
+socket.on('MESSAGES_AND_LABELS', (data) => {
   console.log(data)
-  store.dispatch('initMessages', data.messages)
+  store.dispatch('messagesAndLabels', { messages: data.messages, labels: data.labels })
 })
 
 Vue.use(VueRouter)
