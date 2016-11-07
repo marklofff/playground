@@ -10,12 +10,15 @@ export default new Vuex.Store({
   actions,
   getters,
   state: {
-    messages: 'wow neat message',
+    messages: '',
     label: 'All'
   },
   mutations: {
     [types.SET_LABEL] (state, label) {
       state.label = label
+    },
+    [types.SET_MESSAGES] (state, messages) {
+      state.messages = messages
     }
   }
 })

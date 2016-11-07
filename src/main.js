@@ -6,7 +6,12 @@ import store from './store'
 import * as types from './store/mutation-types'
 import socketio from 'socket.io-client'
 
-let socketio = socketio('http://localhost:8010')
+let socket = socketio('http://localhost:8010')
+
+socket.on('init', (data) => {
+  console.log(data)
+  store.dispatch('initMessages', data.messages)
+})
 
 Vue.use(VueRouter)
 

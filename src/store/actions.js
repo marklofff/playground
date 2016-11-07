@@ -5,3 +5,7 @@ export const labelFromParams = ({ commit, state }) => {
   if(label !== undefined && label !== '')
     commit(types.SET_LABEL, label)
 }
+
+export const initMessages = ({ commit }, messages) => {
+  commit(types.SET_MESSAGES, messages)
+}
