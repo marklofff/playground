@@ -2,7 +2,16 @@
 
 just playin
 
+## Dependencies
+
+* Node.js
+* RethinkDB
+
 ## Setup
+
+Requires RethinkDB to be running
+
+  rethinkdb
 
 Install dependencies
 
