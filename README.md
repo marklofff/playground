@@ -1,18 +1,27 @@
 # playground
 
-> just playin
+just playin
 
-## Build Setup
+## Setup
 
-``` bash
-# install dependencies
-npm install
+Install dependencies
 
-# serve with hot reload at localhost:8080
-npm run dev
+    npm install
 
-# build for production with minification
-npm run build
-```
+Start dev servers
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+    npm run dev
+
+## Tests
+
+Download selenium bits
+
+    node nightwatch.conf.js
+
+Run the dev server
+
+    npm run dev
+
+Run the Nightwatch tests
+
+    npm test
