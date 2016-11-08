@@ -4,8 +4,12 @@
   "author": "Robert Peterson <robert.peterson@gmail.com>",
   "private": true,
   "scripts": {
-    "dev": "concurrently --kill-others \"cross-env NODE_ENV=development webpack-dev-server --open --inline --hot --port 3000\" \"cross-env NODE_ENV=development nodemon app.js\"",
-    "test": "concurrently --kill-others \"cross-env NODE_ENV=test webpack-dev-server --inline --hot --port 3001\" \"cross-env NODE_ENV=test nodemon app.js\" \"node_modules/.bin/nightwatch\"",
+    "dev": "concurrently --kill-others \"npm run webserver-dev\" \"npm run websocket-dev\"",
+    "test": "concurrently --kill-others \"npm run webserver-test\" \"npm run websocket-test\" \"node_modules/.bin/nightwatch\"",
+    "webserver-dev":"cross-env NODE_ENV=development webpack-dev-server --open --inline --hot --port 3000",
+    "webserver-test":"cross-env NODE_ENV=test webpack-dev-server --inline --hot --port 3001",
+    "websocket-dev":"cross-env NODE_ENV=development nodemon app.js",
+    "websocket-test":"cross-env NODE_ENV=test nodemon app.js",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
