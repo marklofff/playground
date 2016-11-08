@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { sync } from 'vuex-router-sync'
 import VueRouter from 'vue-router'
-import Messages from './Messages.vue'
+import Playground from './Playground.vue'
 import store from './store'
 import * as types from './store/mutation-types'
 import socketio from 'socket.io-client'
@@ -17,8 +17,8 @@ Vue.use(VueRouter)
 
 var router = new VueRouter({
   routes: [
-    { path: '/', component: Messages },
-    { path: '/:label', component: Messages }
+    { path: '/', component: Playground },
+    { path: '/:label', component: Playground }
   ]
 })
 

@@ -20,7 +20,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'messages',
+  name: 'playground',
   computed: {
     ...mapGetters({
       labels: 'labels',
