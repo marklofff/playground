@@ -7,9 +7,10 @@ const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const r = require('rethinkdbdash')({ db: DATABASE })
 
-console.log(`Starting Websocket port=${PORT}`)
+console.log(`[Websocket] Starting port=${PORT}`)
 server.listen(PORT)
 
+// send new changes to all websocket clients
 r.table("messages").changes().run((err, cursor) => {
   cursor.each((_, data) => {
     io.sockets.emit('NEW_MESSAGE', { message: data.new_val })
@@ -17,7 +18,7 @@ r.table("messages").changes().run((err, cursor) => {
 })
 
 io.on('connection', (socket) => {
-  console.log('WebSocket Connected')
+  console.log('[WebSocket] Connected')
 
   r.table('messages').orderBy({ index: r.desc('created_at') }).run().then((result) => {
     socket.emit('MESSAGES_AND_LABELS', { messages: result , labels: [] })
