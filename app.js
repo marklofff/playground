@@ -1,11 +1,14 @@
+const ENV = process.env.NODE_ENV || 'development'
+const DATABASE = `playground_${ENV}`
+const PORT = (ENV === 'test') ? 8011 : 8010
+
 const app = require('express')()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
-const r = require('rethinkdbdash')({
-  db: 'playground'
-})
+const r = require('rethinkdbdash')({ db: DATABASE })
 
-server.listen(8010)
+console.log(`Starting Websocket port=${PORT}`)
+server.listen(PORT)
 
 r.table("messages").changes().run((err, cursor) => {
   cursor.each((_, data) => {

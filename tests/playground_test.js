@@ -1,4 +1,4 @@
-const HOME_PAGE = 'http://localhost:3000'
+const HOME_PAGE = 'http://localhost:3001'
 
 module.exports = {
   'Page Loads': (browser) => {

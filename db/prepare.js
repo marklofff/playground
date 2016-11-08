@@ -1,21 +1,23 @@
-const r = require('rethinkdbdash')()
-let database = "playground"
+const ENV = process.env.NODE_ENV || 'development'
+const DATABASE = `playground_${ENV}`
 
-// r.dbDrop(database).run().then(() => {
+const r = require('rethinkdbdash')()
+
+// r.dbDrop(DATABASE).run().then(() => {
 //   console.log('dropped the database')
 //   process.exit()
 // })
 
-r.dbCreate(database).run().then(()=> {
+r.dbCreate(DATABASE).run().then(()=> {
   console.log('created the database')
 
-  r.db(database).tableCreate("messages").run().then(()=> {
+  r.db(DATABASE).tableCreate("messages").run().then(()=> {
     console.log('created the messages table')
 
-    r.db(database).table("messages").indexCreate("created_at").run().then(()=> {
+    r.db(DATABASE).table("messages").indexCreate("created_at").run().then(()=> {
       console.log('add index for created_at')
 
-      r.db(database).table("messages").indexCreate("label").run().then(()=> {
+      r.db(DATABASE).table("messages").indexCreate("label").run().then(()=> {
         console.log('add index for label')
         process.exit()
       })

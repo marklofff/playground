@@ -31,9 +31,9 @@ Download selenium bits
 
     node nightwatch.conf.js
 
-Run the dev server
+Setup the database
 
-    npm run dev
+    NODE_ENV=test node db/prepare.js
 
 Run the Nightwatch tests
 
