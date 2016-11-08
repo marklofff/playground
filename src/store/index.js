@@ -10,6 +10,7 @@ export default new Vuex.Store({
   actions,
   getters,
   state: {
+    socket: null,
     messages: [],
     labels: [],
     label: 'All'
@@ -23,6 +24,12 @@ export default new Vuex.Store({
     },
     [types.SET_LABELS] (state, labels) {
       state.labels = labels
+    },
+    [types.SET_SOCKET] (state, socket) {
+      state.socket = socket
+    },
+    [types.ADD_MESSAGE] (state, message) {
+      state.messages.unshift(message)
     }
   }
 })

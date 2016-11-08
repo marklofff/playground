@@ -1,8 +1,19 @@
+const HOME_PAGE = 'http://localhost:3000'
+
 module.exports = {
   'Page Loads': (browser) => {
     browser
-      .url('http://localhost:3000')
+      .url(HOME_PAGE)
       .assert.title('playground')
-      .end();
+      .end()
+  },
+  'Send a Message': (browser) => {
+    browser
+      .url(HOME_PAGE)
+      .waitForElementVisible('body', 1000)
+      .setValue('input[type=text]', 'hello there pal')
+      .sendKeys('input[type=text]', browser.Keys.ENTER)
+      .assert.containsText('#messages', 'hello there pal')
+      .end()
   }
 }

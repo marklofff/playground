@@ -17,6 +17,10 @@ Install dependencies
 
     npm install
 
+Setup the database
+
+    node db/prepare.js
+
 Start dev servers
 
     npm run dev

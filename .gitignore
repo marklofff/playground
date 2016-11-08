@@ -6,3 +6,4 @@ bin/chromedriver
 bin/selenium.jar
 reports
 *.log
+screenshots

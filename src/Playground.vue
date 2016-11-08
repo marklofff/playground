@@ -1,13 +1,9 @@
 <template>
   <div class="ui grid container">
     <div class="column">
-      <form>
-        <div class="ui fluid input">
-          <input type="text" placeholder="What's playin yo?" autocomplete="off" autofocus />
-        </div>
-      </form>
-      <div class="ui horizontal divider" v-html="label"></div>
-      <div>
+      <message-form></message-form>
+      <div v-html="label" class="ui horizontal divider"></div>
+      <div id="messages">
         <div v-for="message in messagesForLabel" :key="message.id" class="ui message">
           <p v-html="message.body" class="text"></p>
         </div>
@@ -17,13 +13,16 @@
 </template>
 
 <script>
+import MessageForm from './MessageForm.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  name: 'playground',
+  name: 'Playground',
+  components: {
+    MessageForm
+  },
   computed: {
     ...mapGetters({
-      labels: 'labels',
       label: 'label',
       messagesForLabel: 'messagesForLabel'
     })

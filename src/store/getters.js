@@ -6,9 +6,10 @@ export const label = state => state.label
 
 export const messagesForLabel = (state) => {
   return state.messages.filter((message) => {
-    if(state.label === 'All')
+    if(state.label === 'All' || state.label === undefined) {
       return true
-    else
-      message.label === state.label
+    } else {
+      return message.label === state.label
+    }
   })
 }
