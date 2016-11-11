@@ -22,5 +22,7 @@ module.exports = {
       .sendKeys('input[type=text]', browser.Keys.ENTER)
 
     browser.expect.element('#labels').text.to.match(/lahbul/)
+
+    browser.end()
   }
 }
