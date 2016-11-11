@@ -1,11 +1,16 @@
 <template>
-  <div class="ui grid container">
-    <div class="column">
-      <message-form></message-form>
-      <div v-html="label" class="ui horizontal divider"></div>
-      <div id="messages">
-        <div v-for="message in messagesForLabel" :key="message.id" class="ui message">
-          <p v-html="message.body" class="text"></p>
+  <div id="main" class="ui grid container">
+    <div class="two column row">
+      <div class="four wide column">
+        <label-menu />
+      </div>
+      <div class="twelve wide column">
+        <message-form />
+        <div v-html="label" class="ui horizontal divider"></div>
+        <div id="messages">
+          <div v-for="message in messagesForLabel" :key="message.id" class="ui message">
+            <p v-html="message.body" class="text"></p>
+          </div>
         </div>
       </div>
     </div>
@@ -14,12 +19,14 @@
 
 <script>
 import MessageForm from './MessageForm.vue'
+import LabelMenu from './LabelMenu.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Playground',
   components: {
-    MessageForm
+    MessageForm,
+    LabelMenu
   },
   computed: {
     ...mapGetters({
@@ -41,4 +48,7 @@ export default {
 </script>
 
 <style>
+#main {
+  margin-top: 40px;
+}
 </style>

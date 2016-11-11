@@ -15,10 +15,6 @@ socket.on('MESSAGES_AND_LABELS', (data) => {
   store.dispatch('messagesAndLabels', { messages: data.messages, labels: data.labels })
 })
 
-socket.on('NEW_MESSAGE', (data) => {
-  store.dispatch('receiveNewMessage', data.message)
-})
-
 store.dispatch('webSocket', socket)
 
 Vue.use(VueRouter)

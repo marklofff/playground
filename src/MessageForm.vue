@@ -1,9 +1,11 @@
 <template>
-  <form v-on:submit.prevent="sendMessage(message)">
-    <div class="ui fluid input">
-      <input v-model="message" type="text" placeholder="What's playin yo?" autocomplete="off" autofocus />
-    </div>
-  </form>
+  <div id="message-form">
+    <form v-on:submit.prevent="sendMessage(message)">
+      <div class="ui fluid input">
+        <input v-model="message" type="text" placeholder="What's playin yo?" autocomplete="off" autofocus />
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -17,7 +19,7 @@ export default {
   methods: {
     sendMessage (message) {
       this.$store.dispatch('sendMessage', { body: message })
-      this.message = ""
+      this.message = ''
     }
   }
 }

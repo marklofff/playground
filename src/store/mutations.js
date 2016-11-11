@@ -12,8 +12,5 @@ export default {
   },
   [types.SET_SOCKET] (state, socket) {
     state.socket = socket
-  },
-  [types.ADD_MESSAGE] (state, message) {
-    state.messages.unshift(message)
   }
 }

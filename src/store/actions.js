@@ -18,7 +18,3 @@ export const webSocket = ({ commit }, websocket) => {
 export const sendMessage = ({ commit, state }, message) => {
   state.socket.emit('SEND_MESSAGE', message)
 }
-
-export const receiveNewMessage = ({ commit }, message) => {
-  commit(types.ADD_MESSAGE, message)
-}

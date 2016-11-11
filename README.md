@@ -11,7 +11,7 @@ just playin
 
 Requires RethinkDB to be running
 
-  rethinkdb
+    rethinkdb
 
 Install dependencies
 
@@ -36,5 +36,9 @@ Setup the database
     NODE_ENV=test node db/prepare.js
 
 Run the Nightwatch tests
+
+    npm run e2e
+
+Run the Mocha tests
 
     npm test
