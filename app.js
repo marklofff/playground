@@ -1,17 +1,14 @@
-const ENV = process.env.NODE_ENV || 'development'
-const DATABASE = `playground_${ENV}`
-const PORT = (ENV === 'test') ? 8011 : 8010
-
+const settings = require('./lib/playground_settings.js')
 const bluebird = require('bluebird')
 const app = require('express')()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
-const r = require('rethinkdbdash')({ db: DATABASE })
+const r = require('rethinkdbdash')({ db: settings.DATABASE })
 
 const PlaygroundMessage = require('./lib/playground_message.js')
 
-console.log(`[Websocket] Starting port=${PORT}`)
-server.listen(PORT)
+console.log(`[Websocket] Starting port=${settings.SOCKET_PORT}`)
+server.listen(settings.SOCKET_PORT)
 
 // promises to find messages and labels
 function getMessagesAndLabels() {
