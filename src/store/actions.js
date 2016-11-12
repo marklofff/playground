@@ -12,3 +12,7 @@ export const webSocket = ({ commit }, websocket) => {
 export const sendMessage = ({ commit, state }, message) => {
   state.socket.emit('SEND_MESSAGE', message)
 }
+
+export const defaultLabel = ({ commit }, label) => {
+  commit(types.DEFAULT_LABEL, label)
+}

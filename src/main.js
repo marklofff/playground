@@ -14,6 +14,7 @@ socket.on('MESSAGES_AND_LABELS', (data) => {
 })
 
 store.dispatch('webSocket', socket)
+store.dispatch('defaultLabel', settings.DEFAULT_LABEL)
 
 Vue.use(VueRouter)
 

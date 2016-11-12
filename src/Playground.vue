@@ -9,6 +9,9 @@
         <div v-html="label" class="ui horizontal divider"></div>
         <div id="messages">
           <div v-for="message in messagesForLabel" :key="message.id" class="ui message">
+            <a v-if="message.label" class="ui horizontal label">
+              {{ message.label }}
+            </a>
             <p v-html="message.body" class="text"></p>
           </div>
         </div>

@@ -9,5 +9,8 @@ export default {
   },
   [types.SET_SOCKET] (state, socket) {
     state.socket = socket
+  },
+  [types.DEFAULT_LABEL] (state, label) {
+    state.defaultLabel = label
   }
 }
