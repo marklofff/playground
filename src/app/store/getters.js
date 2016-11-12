@@ -1,5 +1,3 @@
-
-
 export const messages = state => state.messages
 
 export const labels = state => state.labels

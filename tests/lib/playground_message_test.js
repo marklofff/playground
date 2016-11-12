@@ -1,5 +1,5 @@
 const expect = require('expect.js')
-const PlaygroundMessage = require('../../lib/playground_message.js')
+const PlaygroundMessage = require('../../src/lib/playground_message.js')
 
 describe('PlaygroundMessage', () => {
   describe('getLabelFromBody', () => {
