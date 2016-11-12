@@ -10,7 +10,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import * as settings from '../lib/playground_settings.js'
+import * as settings from '../../lib/playground_settings.js'
 
 function generateNewMessage(label) {
   let newMessage = ''
