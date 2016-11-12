@@ -20,11 +20,13 @@ Vue.use(VueRouter)
 var router = new VueRouter({
   routes: [
     { path: '/', component: Playground },
-    { path: '/:label', component: Playground }
+    { path: '/:label', component: Playground, name: 'label' }
   ]
 })
 
 sync(store, router)
+
+// console.log(router.params)
 
 new Vue({
   router,

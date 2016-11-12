@@ -20,7 +20,7 @@
 <script>
 import MessageForm from './MessageForm.vue'
 import LabelMenu from './LabelMenu.vue'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Playground',
@@ -32,16 +32,6 @@ export default {
     ...mapGetters({
       label: 'label',
       messagesForLabel: 'messagesForLabel'
-    })
-  },
-  methods: {
-    ...mapActions([
-      'labelFromParams'
-    ])
-  },
-  beforeRouteEnter (to, from, next) {
-    next(vm => {
-      vm.labelFromParams()
     })
   }
 }

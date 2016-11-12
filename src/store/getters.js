@@ -2,14 +2,22 @@ export const messages = state => state.messages
 
 export const labels = state => state.labels
 
-export const label = state => state.label
+export const label = (state) => {
+  let label = state.route.params.label
+  if(label === undefined || label === '') {
+    return 'All'
+  } else {
+    return label;
+  }
+}
 
-export const messagesForLabel = (state) => {
+export const messagesForLabel = (state, getters) => {
+  let label = getters.label
   return state.messages.filter((message) => {
-    if(state.label === 'All' || state.label === undefined) {
+    if(label === 'All') {
       return true
     } else {
-      return message.label === state.label
+      return message.label === label
     }
   })
 }

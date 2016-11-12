@@ -11,8 +11,7 @@ export default new Vuex.Store({
   state: {
     socket: null,
     messages: [],
-    labels: [],
-    label: 'All'
+    labels: []
   },
   actions,
   getters,

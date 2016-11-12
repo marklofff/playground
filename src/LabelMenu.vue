@@ -1,18 +1,18 @@
 <template>
   <div id="labels">
     <div class="ui small vertical menu">
-      <div v-for="label in labels">
-        <a v-bind:class="{ active: label.label === activeLabel }" class="item">
+      <div v-for="label in labels" v-bind:id="label.label">
+        <router-link :to="{ name: 'label', params: { label: label.label } }" v-bind:class="{ active: activeLabel === label.label }" class="item">
           <div v-text="label.count" class="ui small label"></div>
-          <span v-text="label.label"></span>
-        </a>
+          {{ label.label }}
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'LabelMenu',
