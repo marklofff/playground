@@ -1,6 +1,8 @@
-# playground
+# Playground
 
-just playin
+just playin - with nodejs, vuejs, socketio, rethinkdb
+
+Post messages. Label them. Everything is live updated. Cool.
 
 ## Dependencies
 
