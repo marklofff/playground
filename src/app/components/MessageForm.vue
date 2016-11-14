@@ -26,7 +26,7 @@ export default {
   name: 'MessageForm',
   data () {
     return {
-      message: ''
+      message: generateNewMessage(this.$store.getters.label)
     }
   },
   methods: {
