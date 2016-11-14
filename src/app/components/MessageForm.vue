@@ -1,8 +1,8 @@
 <template>
   <div id="message-form" class="ui form">
-    <form v-on:submit.prevent="false">
+    <form v-on:submit.prevent="sendMessage">
       <div class="input">
-        <input v-model="message" v-on:keydown="submitOnEnter" type="text" id="messageInput" placeholder="What's playin yo?" autocomplete="off" />
+        <input v-model="message" type="text" id="messageInput" placeholder="What's playin yo?" autocomplete="off" />
       </div>
     </form>
   </div>
@@ -30,13 +30,9 @@ export default {
     }
   },
   methods: {
-    submitOnEnter(e) {
-      if(e.key === 'Enter' && !e.shiftKey) {
-        if(/\w/.test(this.message)) {
-          this.$store.dispatch('sendMessage', { body: this.message })
-          this.message = ''
-        }
-      }
+    sendMessage() {
+      this.$store.dispatch('sendMessage', { body: this.message })
+      this.message = ''
     }
   }
 }
