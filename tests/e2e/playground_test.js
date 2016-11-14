@@ -1,7 +1,8 @@
-const settings = require('./../../lib/playground_settings.js')
+const settings = require('./../../src/lib/playground_settings.js')
 const r = require('rethinkdbdash')({ db: settings.DATABASE })
 
 const HOME_PAGE = 'http://localhost:3001'
+const MESSAGE_INPUT = 'input[id="messageInput"]'
 
 module.exports = {
   after() {
@@ -19,16 +20,16 @@ module.exports = {
   'Send a Message': (browser) => {
     browser
       .url(HOME_PAGE)
-      .setValue('input[type=text]', 'hello there pal')
-      .sendKeys('input[type=text]', browser.Keys.ENTER)
+      .setValue(MESSAGE_INPUT, 'hello there pal')
+      .sendKeys(MESSAGE_INPUT, browser.Keys.ENTER)
       .assert.containsText('#messages', 'hello there pal')
       .end()
   },
   'Create a Label': (browser) => {
     browser
       .url(HOME_PAGE)
-      .setValue('input[type=text]', '+lahbul this is fun')
-      .sendKeys('input[type=text]', browser.Keys.ENTER)
+      .setValue(MESSAGE_INPUT, '+lahbul this is fun')
+      .sendKeys(MESSAGE_INPUT, browser.Keys.ENTER)
 
     browser.expect.element('#labels').text.to.match(/lahbul/)
 
@@ -37,11 +38,12 @@ module.exports = {
   'Navigate to Label View': (browser) => {
     browser
       .url(HOME_PAGE)
-      .setValue('input[type=text]', 'wow neat great cool')
-      .sendKeys('input[type=text]', browser.Keys.ENTER)
-      .setValue('input[type=text]', '+neato bloop neat floop')
-      .sendKeys('input[type=text]', browser.Keys.ENTER)
-      .click('div[id="neato"] > a')
+      .setValue(MESSAGE_INPUT, 'wow neat great cool')
+      .sendKeys(MESSAGE_INPUT, browser.Keys.ENTER)
+      .setValue(MESSAGE_INPUT, '+neato bloop neat floop')
+      .sendKeys(MESSAGE_INPUT, browser.Keys.ENTER)
+
+    browser.click('div[id="neato"] > a')
 
     browser.expect.element('#messages').text.to.not.match(/wow neat great cool/)
 

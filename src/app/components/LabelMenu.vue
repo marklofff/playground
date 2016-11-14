@@ -1,6 +1,6 @@
 <template>
   <div id="labels">
-    <div class="ui small vertical menu">
+    <div class="ui small vertical pointing menu">
       <div v-for="label in labels" v-bind:id="label.label">
         <router-link :to="{ name: 'label', params: { label: label.label } }" v-bind:class="{ active: activeLabel === label.label }" class="item">
           <div v-text="label.count" class="ui small label"></div>

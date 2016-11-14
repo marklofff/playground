@@ -1,8 +1,8 @@
 <template>
-  <div id="message-form">
-    <form v-on:submit.prevent="sendMessage(message)">
-      <div class="ui fluid input">
-        <input v-model="newMessage" type="text" placeholder="What's playin yo?" autocomplete="off" autofocus />
+  <div id="message-form" class="ui form">
+    <form v-on:submit.prevent="false">
+      <div class="input">
+        <input v-model="message" v-on:keydown="submitOnEnter" type="text" id="messageInput" placeholder="What's playin yo?" autocomplete="off" />
       </div>
     </form>
   </div>
@@ -30,22 +30,12 @@ export default {
     }
   },
   methods: {
-    sendMessage (message) {
-      this.$store.dispatch('sendMessage', { body: message })
-      this.message = ''
-    }
-  },
-  computed: {
-    newMessage: {
-      get() {
-        if(this.message === '') {
-          return generateNewMessage(this.$store.getters.label)
-        } else {
-          return this.message
+    submitOnEnter(e) {
+      if(e.key === 'Enter' && !e.shiftKey) {
+        if(/\w/.test(this.message)) {
+          this.$store.dispatch('sendMessage', { body: this.message })
+          this.message = ''
         }
-      },
-      set(value) {
-        this.message = value
       }
     }
   }
