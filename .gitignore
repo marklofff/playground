@@ -7,3 +7,4 @@ bin/selenium.jar
 reports
 *.log
 screenshots
+rethinkdb_data
