@@ -20,8 +20,8 @@ Vue.use(VueRouter)
 
 var router = new VueRouter({
   routes: [
-    { path: '/', component: Playground },
-    { path: '/:label', component: Playground, name: 'label' }
+    { path: '/:label', component: Playground, name: 'label' },
+    { path: '*', redirect: '/All' }
   ]
 })
 
